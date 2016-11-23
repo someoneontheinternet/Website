@@ -1,0 +1,25 @@
+
+div.parallax-wrapper {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+}
+
+div.parallax.back {
+	background: url('../res/parallax/banner.jpg') center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+
+	z-index: 1;
+}
+
+div.parallax.mid {
+	color: #FFF;
+	z-index: 2;
+}
+
+div.parallax.front {
+	z-index: 3;
+}
