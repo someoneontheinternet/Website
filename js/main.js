@@ -27,6 +27,8 @@ $(document).ready(function () {
     back = $('div.parallax.back');
     mid = $('div.parallax.mid');
     navbar = $('nav.navbar');
+
+    onScroll();
     
     hideLoader();
 
@@ -36,16 +38,12 @@ function onScroll() {
     
     var position = $(window).scrollTop();
     back.css('top', position / 2 + "px");
-    mid.css('top',  position / 1.7 + "px");
+    mid.css('top',  position / 1.8 + "px");
 
-    if (position + 10 >= windowHeight) {
-        if (!navbar.hasClass('navbar-fixed-top')) {
-            navbar.addClass('navbar-fixed-top');
-        }
+    if (position >= windowHeight) {
+        navbar.css('top', '0px');
     } else {
-        if (navbar.hasClass('navbar-fixed-top')) {
-            navbar.removeClass('navbar-fixed-top');
-        }
+        navbar.css('top', windowHeight - position - 1);
     }
 
 }
