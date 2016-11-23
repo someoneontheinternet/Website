@@ -3,6 +3,11 @@
 var windowWidth;
 var windowHeight;
 
+var back;
+var mid;
+
+var navbar;
+
 $(document).ready(function () {
 
     windowResize();
@@ -11,16 +16,39 @@ $(document).ready(function () {
         scrollTop: 0
     }, 1);
 
-    hideLoader();
-
     windowWidth = $(window).width();
     windowHeight = $(window).height();
 
     console.log("Window loaded w/h is: " + windowWidth + " " + windowHeight);
 
     $(window).resize(windowResize);
+    $(window).scroll(onScroll);
+
+    back = $('div.parallax.back');
+    mid = $('div.parallax.mid');
+    navbar = $('nav.navbar');
+    
+    hideLoader();
 
 });
+
+function onScroll() {
+    
+    var position = $(window).scrollTop();
+    back.css('top', position / 2 + "px");
+    mid.css('top',  position / 1.7 + "px");
+
+    if (position + 10 >= windowHeight) {
+        if (!navbar.hasClass('navbar-fixed-top')) {
+            navbar.addClass('navbar-fixed-top');
+        }
+    } else {
+        if (navbar.hasClass('navbar-fixed-top')) {
+            navbar.removeClass('navbar-fixed-top');
+        }
+    }
+
+}
 
 function windowResize() {
     windowWidth = $(window).width();

@@ -1,25 +1,54 @@
 
+html {
+	background-color: #000;
+}
+
 div.parallax-wrapper {
-	position: fixed;
+	position: relative;
 	width: 100px;
 	height: 100px;
+	z-index: 5;
 }
 
 div.parallax.back {
-	background: url('../res/parallax/banner.jpg') center center;
+	background-color: #000;
+	background: url('../res/parallax/rsz_banner.jpg') center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
 	width: 100%;
+	
+	position: relative;
+	z-index: 6;
 
-	z-index: 1;
+	top: 0px;
+
+	transition-timing-function: linear;
+	-webkit-transition-timing-function: linear;
+	
 }
 
 div.parallax.mid {
+	position: absolute;
 	color: #FFF;
-	z-index: 2;
+	z-index: 7;
+
+	padding-top: 25%;
+	padding-left: calc(50% - 60.6795px);
+
+	text-transform: uppercase;
+	text-align: center;
+
+	top: 0px;
 }
 
 div.parallax.front {
-	z-index: 3;
+	z-index: 8;
+}
+
+div.page-front {
+	position: relative;
+	z-index: 50;
+	color: #f00;
+	background-color: #fff; 
 }
