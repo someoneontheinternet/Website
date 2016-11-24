@@ -33,13 +33,17 @@ div.parallax.mid {
 	color: #FFF;
 	z-index: 7;
 
-	padding-top: 35%;
 	padding-left: calc(50% - 60.6795px);
 
 	text-transform: uppercase;
 	text-align: center;
 
 	top: 0px;
+}
+
+div.parallax.mid div {
+	padding-top: calc(100vh / 3.5);
+	position: relative;
 }
 
 div.parallax.front {

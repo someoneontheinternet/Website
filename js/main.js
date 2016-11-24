@@ -7,6 +7,7 @@ var back;
 var mid;
 
 var navbar;
+var scrollDelta;
 
 $(document).ready(function () {
 
@@ -22,11 +23,12 @@ $(document).ready(function () {
     console.log("Window loaded w/h is: " + windowWidth + " " + windowHeight);
 
     $(window).resize(windowResize);
-    $(window).scroll(onScroll);
+    $(window).scroll(onScroll);    
 
     back = $('div.parallax.back');
     mid = $('div.parallax.mid');
     navbar = $('nav.navbar');
+    scrollDelta = $(window).scrollTop();
 
     onScroll();
     
@@ -43,9 +45,10 @@ function onScroll() {
     if (position >= windowHeight) {
         navbar.css('top', '0px');
     } else {
-        navbar.css('top', windowHeight - position - 1);
+        navbar.css('top', windowHeight - position - (position - scrollDelta) - 5);
     }
 
+    scrollDelta = position;
 }
 
 function windowResize() {
