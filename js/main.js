@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     console.log("Window loaded w/h is: " + windowWidth + " " + windowHeight);
 
+    $(window).resize(windowResize);
+
     $(window).scroll(onScroll);    
 
     back = $('div.parallax.back');
@@ -31,8 +33,6 @@ $(document).ready(function () {
 
     onScroll();
     
-    $(window).resize(windowResize);
-
     hideLoader();
 
 });
@@ -53,8 +53,6 @@ function onScroll() {
 }
 
 function windowResize() {
-
-    onScroll();
 
     windowWidth = $(window).width();
     windowHeight = $(window).height();
