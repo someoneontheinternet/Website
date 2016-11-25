@@ -45,9 +45,9 @@ function onScroll() {
         var delta = position - scrollDelta;
 
         if (delta > 0) {
-            navbar.css('top', windowHeight - position - (delta * 1.5));
+            navbar.css('top', windowHeight - position - (delta * 1.2));
         } else {
-            navbar.css('top', windowHeight - position - (delta * -1.5));
+            navbar.css('top', windowHeight - position - (delta * -1.3));
         }
 
     } else {
