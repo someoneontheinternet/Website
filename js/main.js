@@ -23,7 +23,6 @@ $(document).ready(function () {
     console.log("Window loaded w/h is: " + windowWidth + " " + windowHeight);
 
     $(window).resize(windowResize);
-
     $(window).scroll(onScroll);    
 
     back = $('div.parallax.back');
@@ -40,20 +39,29 @@ $(document).ready(function () {
 function onScroll() {
     
     var position = $(window).scrollTop();
+
+    if (position < windowHeight) {
+
+        var delta = position - scrollDelta;
+
+        if (delta > 0) {
+            navbar.css('top', windowHeight - position - (delta * 1.5));
+        } else {
+            navbar.css('top', windowHeight - position - (delta * -1.5));
+        }
+
+    } else {
+        navbar.css('top', 0);
+    }
+
     back.css('top', position / 2 + "px");
     mid.css('top',  position / 1.8 + "px");
-
-    if (position >= windowHeight) {
-        navbar.css('top', '0px');
-    } else {
-        navbar.css('top', windowHeight - position - (position - scrollDelta) - 5);
-    }
 
     scrollDelta = position;
 }
 
 function windowResize() {
-
+    
     windowWidth = $(window).width();
     windowHeight = $(window).height();
     

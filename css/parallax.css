@@ -42,7 +42,7 @@ div.parallax.mid {
 }
 
 div.parallax.mid div {
-	padding-top: calc(100vh / 3.5);
+	padding-top: calc(100vh / 3.4);
 	position: relative;
 }
 
