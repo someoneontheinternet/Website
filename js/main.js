@@ -82,6 +82,8 @@ function parallax() {
 
     var position = $(window).scrollTop();
 
+    /*
+
     if (position < windowHeight) {
 
         var delta = position - scrollDelta;
@@ -96,10 +98,25 @@ function parallax() {
         navbar.css('top', 0);
     }
 
+    */
+
+    if (position > windowHeight) {
+        if (!navbar.hasClass('navbar-fixed-top')) {
+            navbar.addClass('navbar-fixed-top');
+            navbar.css('position', 'fixed');
+        }
+    } else {
+        if (navbar.hasClass('navbar-fixed-top')) {
+            navbar.removeClass('navbar-fixed-top');
+            navbar.css('position', 'absolute');
+            navbar.css('width', '100%');
+        }
+    }
+
     if (position <= windowHeight) {
 
         back.css('top', position / 2 + "px");
-        mid.css('top',  position / 1.8 + "px");
+        mid.css('top',  position / 1.9 + "px");
 
     }
 

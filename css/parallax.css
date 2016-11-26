@@ -49,10 +49,3 @@ div.parallax.mid div {
 div.parallax.front {
 	z-index: 8;
 }
-
-div.page-front {
-	position: relative;
-	z-index: 50;
-	color: #f00;
-	background-color: #fff; 
-}
